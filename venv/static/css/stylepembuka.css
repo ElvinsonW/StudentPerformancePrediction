@@ -1,0 +1,199 @@
+@font-face {
+  font-family: 'washington';
+  src: url('../fonts/Washington.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'bunny';
+  src: url('../fonts/Bunny\ House.otf') format('opentype');
+}
+@font-face {
+  font-family: 'masitro';
+  src: url('../fonts/Masitro\ Free.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'aurelia';
+  src: url('../fonts/Aurelia.ttf') format('truetype');
+  font-weight: 10px;
+}
+
+/* RESET & GLOBAL STYLE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+  }
+  
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffdde1, #ff758c); */
+    background-color: #EEB740;
+    background-size: 100%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Supaya selalu di atas elemen lain */
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: #EEB740;
+}
+
+/* KIRI - JUDUL */
+.navbar .title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* KANAN - MENU */
+.navbar .menu {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar .menu a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+  padding: 5px 20px;
+  border-radius: 20px;
+}
+
+.navbar .menu a:hover {
+  color: #2050e0;
+}
+
+.selected{
+  color: white !important;
+  background-color: #4169E1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  .navbar .menu {
+      margin-top: 10px;
+      flex-direction: column;
+      gap: 10px;
+  }
+}
+
+
+
+/* CONTENT */
+main {
+    margin-top: 200px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: bold;
+    /* font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'aurelia', sans-serif;
+}
+
+.highlight-green {
+    color: green;
+    font-family: 'bunny', sans-serif;
+}
+
+.highlight-blue {
+    border: #325C96;
+    font-size: 45px;
+    background-color: #325C96;
+    padding: 8px 15px 10px 15px;
+    color: #ffffff;
+    border-radius: 20px;
+    /* font-family: 'aurelia', sans-serif;   */
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+/* .highlight-blue {
+    background-color: #4169E1;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+} */
+
+p {
+    color: #444;
+    font-size: 18px;
+    margin-top: 25px;
+    font-family: 'washington', sans-serif;
+}
+
+.start-btn {
+    background-color: #325C96;
+    color: white;
+    font-size: 18px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s;
+    font-weight: bold;
+}
+
+.start-btn:hover {
+    background-color: #815211;
+}
+
+ /* ANIMASI ICONS */
+ @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+ }
+        
+.icons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.icon {
+    background-color: #325C96;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    animation: float 3s infinite ease-in-out;
+}
+
+/* POSISI ICON SEKITAR TEKS */
+.icon:nth-child(1) { top: 15%; left: 20%; animation-delay: 0s; } /*x*/
+.icon:nth-child(2) { top: 15%; right: 20%; animation-delay: 0s; } /*⊗*/
+.icon:nth-child(3) { bottom: 50%; left: 10%; animation-delay: 0s; } /*+*/
+.icon:nth-child(4) { bottom: 50%; right: 10%; animation-delay: 0s; } /*÷*/
+.icon:nth-child(5) { bottom: 20%; left: 25%; animation-delay: 0s; } /*-*/
+.icon:nth-child(6) { bottom: 20%; right: 25%; animation-delay: 0s; } /*:*/

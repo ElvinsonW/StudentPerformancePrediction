@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Akhir</title>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+  <nav class="navbar">
+    <div class="title">Student Performance</div>
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/form" class="selected">Form</a>
+        <a href="/about-us">About Us</a>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+        <!-- Form -->
+        <form action="{{ url_for('predict') }}" method="POST" class="container">
+          <h1>Isilah pertanyaan dibawah ini!</h1>
+
+
+          <div class="container-pertanyaan">
+            <label for="attendance">Persentase kehadiran di kelas</label> <!--Attendance-->
+            <input type="number" id="attendance" name="attendance" min="0" max="100" placeholder="Masukkan angka 0-100" required>  
+          </div>
+
+
+          <div class="container-pertanyaan">
+            <label for="hours_studied">Jumlah jam yang dihabiskan untuk belajar per minggu.</label> <!--Hours_Studied-->
+            <input type="number" id="hours_studied" name="hours_studied" min="0" max="168" placeholder="Masukkan angka " required>   
+          </div>
+          
+          
+          <div class="container-pertanyaan">
+            <label for="motivational_level">Tingkat motivasi siswa</label> <!--Motivational_Level-->
+            <select class="dropdown" id="motivational_level" name="motivational_level" required>
+              <option value="" selected disabled>Pilih</option>
+              <option value="0">Low</option>
+              <option value="1">Medium</option>
+              <option value="2">High</option>
+            </select> 
+          </div>
+          
+          
+          <div class="container-pertanyaan">
+            <label for="previous_score">Nilai dari ujian sebelumnya</label> <!--Previous score-->
+            <input type="number" id="previous_score" name="previous_score" min="0" max="100" placeholder="Masukkan angka 0-100" required>  
+          </div>
+          
+
+          <div class="container-pertanyaan">
+            <label for="access_to_resource">Ketersediaan sumber daya pendidikan</label> <!--Access to Resource-->
+            <select class="dropdown" id="access_to_resource" name="access_to_resource" required>
+              <option value="" selected disabled>Pilih</option>
+              <option value="0">Low</option>
+              <option value="1">Medium</option>
+              <option value="2">High</option>
+            </select> 
+          </div>
+
+
+          <div class="container-pertanyaan">
+            <label for="teacher_quality">Kualitas guru</label> <!--Teacher_quality-->
+            <select class="dropdown" id="teacher_quality" name="teacher_quality" required>
+              <option value="" selected disabled>Pilih</option>
+              <option value="0">Low</option>
+              <option value="1">Medium</option>
+              <option value="2">High</option>
+            </select> 
+          </div>
+
+          
+          <div class="container-pertanyaan">
+            <label>Ketersediaan akses internet</label> <!--internet akses-->
+              <label class="radio-container">
+                <input type="radio" name="internet_access" value="1">
+                Yes
+                <span class="checkmark"></span>
+              </label>
+              <label class="radio-container">
+                <input type="radio" name="internet_access" value="0">
+                No
+                <span class="checkmark"></span>
+              </label>
+          </div>
+
+
+          
+          <div class="container-pertanyaan">
+            <label for="tutoring_sessions">Jumlah sesi les yang diikuti per bulan.</label> <!--Tutoring Session-->
+            <input type="number" id="tutoring_sessions" name="tutoring_sessions" min="0" max="100" placeholder="Masukkan angka 0-100" required>   
+          </div>
+
+          <div class="container-pertanyaan">
+            <label>Adanya gangguan belajar</label> <!--Learning_Disabilities-->
+              <label class="radio-container">
+                <input type="radio" name="learning_disabilities" value="1">
+                Yes
+                <span class="checkmark"></span>
+              </label>
+              <label class="radio-container">
+                <input type="radio" name="learning_disabilities" value="0">
+                No
+                <span class="checkmark"></span>
+              </label>
+          </div>
+
+
+          <div class="container-pertanyaan">
+            <label>Partisipasi dalam kegiatan ekstrakurikuler</label> <!--Extracurricular_Activities-->
+              <label class="radio-container">
+                <input type="radio" name="extracurricular_activities" value="1">
+                Yes
+                <span class="checkmark"></span>
+              </label>
+              <label class="radio-container">
+                <input type="radio" name="extracurricular_activities" value="0">
+                No
+                <span class="checkmark"></span>
+              </label>
+          </div>
+
+
+            <div class="container-pertanyaan">
+              <label for="distance_from_home">Jarak dari rumah ke sekolah</label> <!--Distance_from_Home -->
+              <select class="dropdown" id="distance_from_home" name="distance_from_home">
+                <option value="" selected disabled>Pilih</option>
+                <option value="0">Near</option>
+                <option value="1">Moderate</option>
+                <option value="2">Far</option>
+              </select>
+            </div>
+
+
+            <div class="container-pertanyaan">
+              <label for="peer_influence">Pengaruh teman sebaya terhadap performa akademik</label> <!--Peer_Influence-->
+              <select class="dropdown" id="peer_influence" name="peer_influence">
+                <option value="" selected disabled>Pilih</option>
+                <option value="1">Positive</option>
+                <option value="0">Neutral</option>
+                <option value="-1">Negative</option>
+              </select>
+            </div>
+          
+
+            <div class="container-pertanyaan">
+              <label for="parental_involvement">Tingkat keterlibatan orang tua dalam pendidikan siswa</label> <!--Parental_Involvemen-->
+                <select class="dropdown" id="parental_involvement" name="parental_involvement">
+                  <option value="" selected disabled>Pilih</option>
+                  <option value="0">Low</option>
+                  <option value="1">Medium</option>
+                  <option value="2">High</option>
+                </select>
+            </div>
+
+          
+            <div class="container-pertanyaan">
+                <label for="parental_education_level">Tingkat pendidikan orang tua </label> <!--. Parental_Education_Level-->
+                  <select class="dropdown" id="parental_education_level" name="parental_education_level">
+                    <option value="" selected disabled>Pilih</option>
+                    <option value="0">High School</option>
+                    <option value="1">College</option>
+                    <option value="2">Postgraduate</option>
+                  </select>
+            </div>
+          
+            
+
+            <div class="container-pertanyaan">
+              <label for="family_income">Tingkat pendapatan keluarga</label> <!--Family_Income-->
+                <select class="dropdown" id="family_income" name="family_income">
+                  <option value="" selected disabled>Pilih</option>
+                  <option value="0">Low</option>
+                  <option value="1">Medium</option>
+                  <option value="2">High</option>
+                </select>
+          </div>
+          
+          
+          <button type="submit">Submit</button>
+        </form>
+      
+        <!-- Result Container (TERPISAH DARI FORM) -->
+        <div class="result-container">
+          <div class="result-box">
+            <p><strong>Hasil</strong></p>
+            <p>00</p>
+          </div>
+        </div>
+
+        <!-- <div class="result-container">
+            <button onclick="location.href='Pagepembuka.html'">Kembali</button>
+        </div> -->
+
+      </div>
+      <script src="./static/js/scriptform.js"></script>
+</body>
+</html>

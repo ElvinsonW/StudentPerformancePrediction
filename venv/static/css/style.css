@@ -1,0 +1,373 @@
+/* ANIMASI BACKGROUND */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* FONT */
+@font-face {
+  font-family: 'washington';
+  src: url('../fonts/Washington.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'bunny';
+  src: url('../fonts/Bunny\ House.otf') format('opentype');
+}
+@font-face {
+  font-family: 'masitro';
+  src: url('../fonts/Masitro\ Free.ttf') format('truetype');
+}
+
+/* RESET & GLOBAL STYLE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffdde1, #ff758c); */
+  background-color: #EEB740;
+  background-size: 100%;
+  animation: gradientAnimation 10s ease infinite;
+  padding: 40px;
+  padding-top: 60px;
+}
+
+
+
+/* NAVBAR */
+.navbar {
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Supaya selalu di atas elemen lain */
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  transition: top 0.3s ease-in-out;
+  background-color: #EEB740;
+}
+
+/* KIRI - JUDUL */
+.navbar .title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* KANAN - MENU */
+.navbar .menu {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar .menu a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+  padding: 5px 20px;
+  border-radius: 20px;
+}
+
+.navbar .menu a:hover {
+  color: #ffdd57;
+}
+
+.selected{
+  color: white !important;
+  background-color: #4169E1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  .navbar .menu {
+      margin-top: 10px;
+      flex-direction: column;
+      gap: 10px;
+  }
+}
+
+
+
+
+/* CONTAINER FORM */
+.container {
+  width: 100%;  
+  max-width:600px; /* Lebih lebar biar nyaman */
+  padding: 20px;
+  background: rgba(132, 73, 10, 0.763);
+  backdrop-filter: blur(20px);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  display: fixed;
+  margin-top: 20px;
+}
+
+/* JUDUL */
+h1 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  font-family: 'masitro', sans-serif;
+}
+
+/* LABEL */
+label {
+  font-weight: 500;
+  color: #444;
+  margin-top: 15px;
+  display: block;
+  font-size: 16px;
+}
+
+/* INPUT FIELD */
+input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(199, 157, 91, 0.845);
+  font-size: 16px;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+/* Efek saat input diklik */
+input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+
+input.filled {
+  background: rgba(255, 255, 255, 0.9); /* Tetap putih setelah diisi */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow tetap ada */
+}
+
+
+
+/* chescklist box */
+.radio-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Sembunyikan input asli */
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* dropdown */
+.dropdown {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: rgba(199, 158, 91, 0.7); /* Warna awal coklat transparan */
+  color: #444;
+  appearance: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Warna berubah saat dropdown dipilih */
+.dropdown.changed {
+  background: rgba(255, 255, 255, 0.9) !important; /* Warna putih setelah dipilih */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+
+
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Sembunyikan input asli */
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Custom radio button */
+.checkmark {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  background-color: white;
+  transition: 0.3s;
+}
+
+/* Saat dipilih */
+.radio-container input:checked ~ .checkmark {
+  background-color: #3e2705;
+  border: 2px solid #3e2705;
+}
+
+/* Lingkaran kecil dalam radio */
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+  transform: translate(-50%, -50%);
+}
+
+/* Tampilkan lingkaran kecil saat radio dipilih */
+.radio-container input:checked ~ .checkmark::after {
+  display: block;
+}
+
+
+
+/* TOMBOL */
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #1e4cd5;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 20px;
+}
+
+/* EFEK HOVER TOMBOL */
+button:hover {
+  /* background: linear-gradient(135deg, #382103, #ffc875, #975c03); */
+  background-color: #325C96;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* WRAPPER UTAMA */
+.wrapper {
+  display: flex;
+  flex-direction: column; /* Susunan vertikal (ke bawah) */
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* RESULT BOX SEBAGAI CONTAINER TERPISAH */
+.result-container {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 30px; /* Jarak dari form */
+  display: flex;
+  justify-content: center;
+}
+
+/* RESULT BOX */
+.result-box {
+  width: 100%;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* TEKS DALAM RESULT BOX */
+.result-box p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* .result-container button {
+  border-radius: 5px;
+  background: #000000;
+  color: white;
+  font-size: 12px;
+  /* font-weight: bold; 
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 20px;
+}
+
+/* EFEK HOVER TOMBOL 
+.result-container  button:hover {
+  background: red;
+  transform: scale(1.05);
+} */
+
+/* ANIMASI MUNCUL RESULT */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.result-box.show {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+
+.container-pertanyaan{
+  width: 100%;
+  margin-bottom: 30px;
+  max-width: 600px; /* Lebih lebar biar nyaman */
+  padding: 20px;
+  background: rgb(255, 255, 255);
+  /* backdrop-filter: blur(20px);  */
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  display: fixed; 
+}
+
+.container-pertanyaan label{
+  font-weight: bold;
+  color: black;
+  font-size: 18px;  
+  margin-bottom: 20px;
+}
+

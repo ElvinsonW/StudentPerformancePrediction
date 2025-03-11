@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'masitro';
+  src: url('../fonts/Masitro\ Free.ttf') format('truetype');
+}
+
 /* RESET & GLOBAL STYLE */
 * {
   margin: 0;
@@ -93,11 +98,23 @@ body {
 }
 
 .wrapprer-our h1 {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  /* font-family: Georgia, "Times New Roman", Times, serif; */
+  font-size: 50px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  font-family: 'masitro', sans-serif;
 }
 
 .wrapprer-our p {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+  font-weight: 1000;
+  color: #444;
+  margin-top: 5px;
+  display: block;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
 }
 
 .container {

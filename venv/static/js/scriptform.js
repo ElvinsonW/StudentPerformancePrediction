@@ -99,7 +99,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
-    const resultContainer = document.querySelector(".result-container p:last-child");
+    const resultContainer = document.querySelector(".result");
+    const recomendationContainer = document.querySelector(".recommendation");
 
     form.addEventListener("submit", async function (event) {
         event.preventDefault();  // Mencegah reload halaman
@@ -113,7 +114,20 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             if (data.prediction !== undefined) {
-                resultContainer.textContent = `Prediksi Nilai: ${data.prediction[0].toFixed(2)}`;
+                const score = data.prediction[0].toFixed(2);
+                resultContainer.textContent = `${score}`;
+                resultContainer.classList.add("show-result");
+                alert(score);
+                if(score < 80){
+                    const attendance = document.getElementById("attendance");
+                    const hours_studied = document.getElementById("hours_studied");
+                    const tutoring_sessions = document.getElementById("tutoring_sessions");
+                    resultContainer.style.color = "red";
+                    recomendationContainer.textContent = `Don't worry—there's always room for improvement! ${attendance.value == 100 ? '' : 'Attend More Class'}, ${hours_studied === 112 ? '' :'Study more hour per weeks'}, and Go for more tutoring if you can!`
+                } else {
+                    resultContainer.style.color = "green";
+                    recomendationContainer.textContent = "Great job! Keep up the excellent work! You're on your way to achieving greatness!"
+                }
             } else {
                 resultContainer.textContent = "Terjadi kesalahan dalam prediksi.";
             }

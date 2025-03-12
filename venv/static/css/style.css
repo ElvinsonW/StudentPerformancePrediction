@@ -371,3 +371,14 @@ button:hover {
   margin-bottom: 20px;
 }
 
+.show-result{
+  font-size: 5vw !important;
+  font-weight: bold !important;
+  margin-top: 10px !important;
+}
+
+.recommendation {
+  font-size: 1.25vw !important;
+  font-weight: bold !important;
+  margin-top: 10px !important;
+}

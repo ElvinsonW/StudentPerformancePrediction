@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const hours_studied = document.getElementById("hours_studied");
                     const tutoring_sessions = document.getElementById("tutoring_sessions");
                     resultContainer.style.color = "red";
-                    recomendationContainer.textContent = `Don't worry—there's always room for improvement! ${attendance.value == 100 ? '' : 'Attend More Class'}, ${hours_studied === 112 ? '' :'Study more hour per weeks'}, and go for more tutoring if you can!`
+                    recomendationContainer.textContent = `Don't worry—there's always room for improvement! ${attendance.value >= 95 ? '' : 'Attend More Class'}, ${hours_studied == 112 ? '' :'Study more hour per weeks'}, and go for more tutoring if you can!`
                 } else {
                     resultContainer.style.color = "green";
                     recomendationContainer.textContent = "Great job! Keep up the excellent work! You're on your way to achieving greatness!"
